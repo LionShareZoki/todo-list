@@ -1,10 +1,8 @@
 :root {
-  --font: #fff;
-  --background: #fff;
-  --header-background: #fff;
-  --nav-background: #fff;
-  --main-background: #fff;
-  --footer-background: #fff;
+  --primary-dark: #333;
+  --secondary-dark: #444;
+  --primary-light: #eee;
+  --secondary-light: #ddd;
 }
 
 *,
@@ -13,7 +11,6 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  border: 1px solid black;
 }
 
 html {
@@ -23,6 +20,9 @@ html {
 
 body {
   font-size: 1.6rem;
+  font-family: "Roboto", sans-serif;
+  color: var(--primary-dark);
+  background-color: var(--primary-light);
 }
 
 header {
@@ -46,6 +46,7 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
+  border: none;
 }
 
 .user-panel {
@@ -53,12 +54,37 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
+  background-color: var(--primary-dark);
+  color: var(--primary-light);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fa-check-double {
+  font-size: 4rem;
+}
+
+.page-name {
+  margin-left: 1rem;
+  font-family: "Yusei Magic", sans-serif;
 }
 
 .user-panel {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button-sign-out {
+  background-color: rgba(173, 85, 85, 1);
+}
+
+.button-sign-out:hover {
+  background-color: rhba(173, 85, 85, 0.9);
 }
 
 .user-name {
@@ -69,16 +95,25 @@ button {
 
 .main {
   display: flex;
-  padding: 1rem;
 }
 
 .nav {
   padding: 1rem;
   flex: 1;
+  height: 100%;
+  background-color: var(--secondary-light);
 }
-.nav button {
+.nav {
   width: 100%;
-  text-align: left;
+}
+
+.button-nav {
+  width: 100%;
+  background-color: var(--secondary-light);
+}
+
+.button-nav:hover {
+  background-color: #ccc;
 }
 .default-project {
   padding: 1rem;
@@ -88,10 +123,23 @@ button {
 }
 .project-preview {
   flex: 3;
-  padding: 1rem;
+  margin-top: 2rem;
+  margin-left: 5rem;
+}
+
+.project-preview h1 {
+  padding: 0 1rem;
 }
 .task {
+  display: flex;
+  align-items: center;
   padding: 1rem;
+}
+
+.fa-circle,
+.fa-check-circle {
+  margin-right: 1rem;
+  font-size: 2.4rem;
 }
 
 /* Footer */
@@ -104,9 +152,10 @@ button {
   align-items: center;
   justify-content: center;
   width: 100%;
+  background-color: var(--primary-dark);
 }
 
-.fab {
+.fa-github {
   margin-left: 1rem;
   color: black;
 }
