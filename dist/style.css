@@ -77,14 +77,16 @@ i {
 }
 
 .page-name {
-  margin-left: 1rem;
+  margin-left: 2rem;
   font-family: "Yusei Magic", sans-serif;
+  font-size: 4rem;
 }
 
 .user-panel {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.6rem;
 }
 
 .button-sign-out {
@@ -97,7 +99,6 @@ i {
 
 .user-name {
   margin-right: 2rem;
-  font-size: 2rem;
 }
 
 /* Main */
@@ -105,6 +106,8 @@ i {
 .main {
   display: flex;
   margin-bottom: 3.5rem;
+  /* 100vh - header_height - footer_height */
+  min-height: calc(100vh - 12.4rem - 3.5rem);
 }
 
 .nav {
@@ -171,6 +174,9 @@ i {
   font-size: 2rem;
   color: var(--primary-light);
 }
+.fa-github:hover {
+  color: #ccc;
+}
 
 @media (max-width: 1200px) {
   .project-preview {
@@ -191,15 +197,10 @@ i {
 }
 
 @media (max-width: 450px) {
-  .header {
-    flex-direction: column;
-  }
-
-  .user-panel {
-    margin-top: 2rem;
-  }
-
   .project-preview {
     flex: 1;
+  }
+  .user-name {
+    display: none;
   }
 }
