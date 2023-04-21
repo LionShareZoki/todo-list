@@ -35,12 +35,14 @@ header {
 
 button {
   display: block;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
   color: inherit;
   font-family: inherit;
   cursor: pointer;
-  outline: none;
   font-size: inherit;
-  padding: 1rem;
+  outline: none;
 }
 
 i {
@@ -82,23 +84,52 @@ i {
   font-size: 4rem;
 }
 
-.user-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.fa-bars {
+  margin-right: 0;
+}
+
+.button-options {
+  padding: 0;
+  background-color: var(--primary-dark);
+  font-size: 4rem;
+}
+
+.button-options:hover {
+  color: #bbb;
+}
+
+.options-panel {
+  display: none;
+  position: absolute;
+  top: 7rem;
+  right: 2rem;
+  padding: 2rem;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: var(--secondary-light);
+  color: #222;
   font-size: 1.6rem;
 }
 
+.options-panel.active {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .button-sign-out {
-  background-color: #be6666;
+  width: 100%;
+  border: 1px solid #555;
+  background-color: #eb9393;
 }
 
 .button-sign-out:hover {
-  background-color: #ad5555;
+  background-color: #da8282;
 }
 
 .user-name {
-  margin-right: 2rem;
+  margin-bottom: 2rem;
 }
 
 /* Main */
@@ -107,7 +138,7 @@ i {
   display: flex;
   margin-bottom: 3.5rem;
   /* 100vh - header_height - footer_height */
-  min-height: calc(100vh - 12.4rem - 3.5rem);
+  min-height: calc(100vh - 10.4rem - 3.5rem);
 }
 
 .nav {
