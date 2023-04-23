@@ -1,57 +1,78 @@
 import TodoList from "./TodoList.js";
 
 export default class UI {
-  constructor() {
-    this.todoList = new TodoList();
-    //load saved data
-
-    this.addProjectButton = document.getElementById("button-add-project");
-    this.addProjectButton.addEventListener("click", this.addProject);
-
-    this.addTaskButton = document.getElementById("button-add-task");
-    this.addTaskButton.addEventListener("click", this.addTask);
-
-    this.projectDefaultButtons = document.querySelectorAll(
-      "[data-default-project-button]"
-    );
-    this.projectDefaultButtons.forEach(
-      button.addEventListener("click", this.openProject)
-    );
-
-    this.projectButtons = document.querySelectorAll("[data-project-button]");
-    this.projectButtons.forEach((button) =>
-      button.addEventListener("click", this.handleProjectButton)
-    );
-
-    this.taskButtons = document.querySelectorAll("[data-task-button]");
-    this.taskButtons.forEach((button) =>
-      button.addEventListener("click", this.handleTaskButton)
-    );
+  static loadWebsite() {
+    this.initDefaultButtons();
+    //const todoList = Storage.getTodoList()
+    //todolist/projects foreach createProject(project)
+    //todolist/project/tasks foreach createTask(task)
   }
 
-  addProject() {
-    // show popup
-    // calcel - hide popup
-    // add to todo list
-    // add to UI
-    // save local
-    // hide popup
+  static initDefaultButtons() {
+    const inboxProjectsButton = document.getElementById("button-index");
+    const todayProjectsButton = document.getElementById("button-today");
+    const weekProjectsButton = document.getElementById("button-this-week");
+    const addProjectButton = document.getElementById("button-add-project");
+    const addTaskButton = document.getElementById("button-add-task");
+
+    inboxProjectsButton.addEventListener("click", UI.openInboxProjects);
+    todayProjectsButton.addEventListener("click", UI.openTodayProjects);
+    weekProjectsButton.addEventListener("click", UI.openWeekProjects);
+    addTaskButton.addEventListener("click", UI.addTask);
+    addProjectButton.addEventListener("click", UI.addProject);
   }
 
-  addTask() {
+  static openInboxProjects() {
+    //for other random tasks which can't be assign as a project
+  }
+
+  static openTodayProjects() {
+    //get all today tasks
+  }
+
+  static openWeekProjects() {
+    //get all this week tasks
+  }
+
+  static addProject() {
     //show popup
     //cancel - hide popup
+    //add - create popup
+    //create element and addEventListener (handleProjectNutton)
+    //add to todolist
+    //add to UI
+    //save local
+    //hide popup
+  }
+
+  static addTask() {
+    //show popup
+    //cancel - hide popup
+    //create element and addEventListener (handleTaskButton)
     //add to todolist/project
     //add to UI
     //save local
     //hide popup
   }
 
+  createProject(project) {
+    //creates an element in DOM
+  }
+
+  createTask(task) {
+    //creates an element in DOM
+  }
+
+  handleProjectButton() {
+    //name clicked -> openProject
+    //options clicked -> openProjectSettings
+  }
+
   openProject() {
     //update UI
   }
 
-  setProject() {
+  openProjectSettings() {
     //show popup
     //rename clicked -> renameProject
     //remove clicked -> removeProject
@@ -59,12 +80,12 @@ export default class UI {
   }
 
   renameProject() {
-    // show popup (same size as setProject popup)
-    // cancel - hide popup
-    // update todo (setName)
-    // update UI (textContent)
-    // save local
-    // hide popup
+    //show popup (same size as setProject popup)
+    //cancel - hide popup
+    //update todo (setName)
+    //update UI (textContent)
+    //save local
+    //hide popup
   }
 
   removeProject() {
@@ -86,15 +107,15 @@ export default class UI {
   }
 
   removeTask() {
-    // remove from todolist/project
-    // remove from UI
-    // save local
+    //remove from todoist/project
+    //remove from UI
+    //save local
   }
 
   renameTask() {
     //show popup
     //cancel - hide popup
-    //update todolist/project+ (setName)
+    //update todolist/project (setName)
     //update UI (textContent)
     //save local
     //hide popup
