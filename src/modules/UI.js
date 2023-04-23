@@ -1,24 +1,111 @@
+import TodoList from "./TodoList.js";
+
 export default class UI {
   constructor() {
-    this.buttonAddProject = document.getElementById("button-add-project");
-    this.buttonAddTask = document.getElementById("button-add-task");
+    this.todoList = new TodoList();
+    //load saved data
+
+    this.addProjectButton = document.getElementById("button-add-project");
+    this.addProjectButton.addEventListener("click", this.addProject);
+
+    this.addTaskButton = document.getElementById("button-add-task");
+    this.addTaskButton.addEventListener("click", this.addTask);
+
+    this.projectDefaultButtons = document.querySelectorAll(
+      "[data-default-project-button]"
+    );
+    this.projectDefaultButtons.forEach(
+      button.addEventListener("click", this.openProject)
+    );
+
+    this.projectButtons = document.querySelectorAll("[data-project-button]");
+    this.projectButtons.forEach((button) =>
+      button.addEventListener("click", this.handleProjectButton)
+    );
+
+    this.taskButtons = document.querySelectorAll("[data-task-button]");
+    this.taskButtons.forEach((button) =>
+      button.addEventListener("click", this.handleTaskButton)
+    );
   }
 
-  //load projects from local storage or load default projects if empty
-  //
-  addProject;
-  //
-  // add project
-  // delete project
-  // rename project
-  // open project
+  addProject() {
+    // show popup
+    // calcel - hide popup
+    // add to todo list
+    // add to UI
+    // save local
+    // hide popup
+  }
 
-  // add task
-  // delete task
-  // rename task
-  // change task date
+  addTask() {
+    //show popup
+    //cancel - hide popup
+    //add to todolist/project
+    //add to UI
+    //save local
+    //hide popup
+  }
 
-  createProject;
+  openProject() {
+    //update UI
+  }
+
+  setProject() {
+    //show popup
+    //rename clicked -> renameProject
+    //remove clicked -> removeProject
+    //hide popup
+  }
+
+  renameProject() {
+    // show popup (same size as setProject popup)
+    // cancel - hide popup
+    // update todo (setName)
+    // update UI (textContent)
+    // save local
+    // hide popup
+  }
+
+  removeProject() {
+    //remove from todolist
+    //remove from UI
+    //save local
+  }
+
+  handleTaskButton() {
+    //tick -> setTaskCompleted
+    //text -> renameTask
+    //date -> setTaskDate
+  }
+
+  setTaskCompleted() {
+    //set UI tick completed
+    //cross task out (setTimeout)
+    //removeTask
+  }
+
+  removeTask() {
+    // remove from todolist/project
+    // remove from UI
+    // save local
+  }
+
+  renameTask() {
+    //show popup
+    //cancel - hide popup
+    //update todolist/project+ (setName)
+    //update UI (textContent)
+    //save local
+    //hide popup
+  }
+
+  setTaskDate() {
+    //show popup
+    //cancel - hide popup
+    //update todoist/project (setDate)
+    //update UI (textContent)
+    //save local
+    //hide popup
+  }
 }
-
-// module implementation

@@ -86,6 +86,7 @@ i {
 
 .main {
   display: flex;
+  max-width: 300px;
   margin-bottom: 3.5rem;
   /* 100vh - header_height - footer_height */
   min-height: calc(100vh - 10.4rem - 3.5rem);
@@ -119,6 +120,7 @@ i {
   margin-top: 1rem;
 }
 .project-preview {
+  max-width: 900px;
   flex: 5;
   padding: 2rem 4rem;
 }
