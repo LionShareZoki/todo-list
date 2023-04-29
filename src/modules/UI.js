@@ -1,11 +1,10 @@
 import TodoList from "./TodoList.js";
+import Storage from "./Storage.js";
 
 export default class UI {
   static loadWebsite() {
     this.initDefaultButtons();
-    //const todoList = Storage.getTodoList()
-    //todolist/projects foreach createProject(project)
-    //todolist/project/tasks foreach createTask(task)
+    this.loadStorageContent(); //from local storage
   }
 
   static initDefaultButtons() {
@@ -13,13 +12,27 @@ export default class UI {
     const todayProjectsButton = document.getElementById("button-today");
     const weekProjectsButton = document.getElementById("button-this-week");
     const addProjectButton = document.getElementById("button-add-project");
+    const addProjectPopupButton = document.getElementById(
+      "button-add-project-confirm"
+    );
+    const cancelProjectPopupButton = document.getElementBy(
+      "button-add-project-cancel"
+    );
     const addTaskButton = document.getElementById("button-add-task");
+    const addTaskPopupButton = document.getElementBy("button-add-task-confirm");
+    const cancelTaskPopupButton = document.getElementBy(
+      "button-add-task-cancel"
+    );
 
     inboxProjectsButton.addEventListener("click", UI.openInboxProjects);
     todayProjectsButton.addEventListener("click", UI.openTodayProjects);
     weekProjectsButton.addEventListener("click", UI.openWeekProjects);
-    addTaskButton.addEventListener("click", UI.addTask);
-    addProjectButton.addEventListener("click", UI.addProject);
+    addProjectButton.addEventListener("click", UI.openAddProjectPopup);
+    addProjectPopupButton.addEventListener("click", UI.addProject);
+    cancelProjectPopupButton.addEventListener("click", UI.closeAddProjectPopup);
+    addTaskButton.addEventListener("click", UI.openAddTaskPopup);
+    addTaskPopupButton.addEventListener("click", UI.addTask);
+    cancelTaskPopupButton.addEventListener("click", UI.closeAddTaskPopup);
   }
 
   static openInboxProjects() {
@@ -34,7 +47,10 @@ export default class UI {
     //get all this week tasks
   }
 
-  static addProject() {
+  // Add project button handlers
+
+  static openAddProjectPopup() {}
+  static closeAddProjectPopup() {
     //show popup
     //cancel - hide popup
     //add - create popup
@@ -45,6 +61,8 @@ export default class UI {
     //hide popup
   }
 
+  static addProject() {}
+
   static addTask() {
     //show popup
     //cancel - hide popup
@@ -54,6 +72,12 @@ export default class UI {
     //save local
     //hide popup
   }
+
+  static closeAddTaskPopup() {}
+
+  static addTask() {}
+
+  // Creating DOM elements
 
   createProject(project) {
     //creates an element in DOM
@@ -67,6 +91,7 @@ export default class UI {
     //name clicked -> openProject
     //options clicked -> openProjectSettings
   }
+  // Project button handlers
 
   openProject() {
     //update UI
